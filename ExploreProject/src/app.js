@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
 import {
+  AppRegistry,
   Navigator,
 } from 'react-native';
+
 import UserData from './usersData';
+import PlaceData from './placesData';
+import Home from './home';
 
 const RouteMapper = (route, navigator) => {
-  if (route.name === 'users') {
+  if (route.name === 'Users') {
     return <UserData navigator={navigator} />;
+  }
+  if(route.name == 'Home') {
+     return <Home navigator={navigator} />
+  }
+  if(route.name == 'Places') {
+     return <PlaceData navigator={navigator} />
   }
 };
 
@@ -14,8 +24,9 @@ export default class App extends Component {
   render() {
     return (
       <Navigator
+        style={{ flex:1 }}
         // Default to movies route
-        initialRoute={{ name: 'users' }}
+        initialRoute={{ name: 'Home' }}
         // Use FloatFromBottom transition between screens
         configureScene={(route, routeStack) => Navigator.SceneConfigs.FloatFromBottom}
         // Pass a route mapper functions
