@@ -1,70 +1,36 @@
-// /**
-//  * Sample React Native App
-//  * https://github.com/facebook/react-native
-//  * @flow
-//  */
-//
-// import React, { Component } from 'react';
-// import {
-//   AppRegistry,
-//   StyleSheet,
-//   ScrollView,
-//   Text,
-//   View
-// } from 'react-native';
-// import axios from 'axios';
-//
-// export default class ExploreProject extends Component {
-//   constructor(props, context) {
-//     super(props, context);
-//
-//     this.state = {
-//       users: []
-//     };
-//   }
-//
-//   componentDidMount() {
-//     axios.get(`http://localhost:3000/users`)
-//       .then(res => {
-//         // console.log(res.data[0].firstName)
-//         const users = res.data
-//         this.setState({ users });
-//         console.log(this.state.users)
-//
-//       });
-//   }
-//
-//   render() {
-//      return (
-//        <View>
-//          <ScrollView>
-//          {this.state.users.map((m,i) => <Text key={i}>Name: {m.firstName} {m.lastName}</Text>)}
-//      </ScrollView>
-//      </View>
-//    );
-//   }
-// }
-//
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: '#F5FCFF',
-//   },
-//   welcome: {
-//     fontSize: 20,
-//     textAlign: 'center',
-//     margin: 10,
-//   },
-//   instructions: {
-//     textAlign: 'center',
-//     color: '#333333',
-//     marginBottom: 5,
-//   },
-// });
+import React, { Component } from 'react';
+import { AppRegistry,  Navigator } from 'react-native';
 
-import { AppRegistry } from 'react-native';
-import App from './src/app';
+import UserData from './screens/usersData';
+import PlaceData from './screens/placesData';
+import Home from './screens/home';
+
+const RouteMapper = (route, navigator) => {
+  if (route.name === 'Users') {
+    return <UserData navigator={navigator} />;
+  }
+  if(route.name == 'Home') {
+     return <Home navigator={navigator} />
+  }
+  if(route.name == 'Places') {
+     return <PlaceData navigator={navigator} />
+  }
+};
+
+export default class App extends Component {
+  render() {
+    return (
+      <Navigator
+        style={{ flex:1 }}
+        // Default to movies route
+        initialRoute={{ name: 'Home' }}
+        // Use FloatFromBottom transition between screens
+        configureScene={(route, routeStack) => Navigator.SceneConfigs.FloatFromBottom}
+        // Pass a route mapper functions
+        renderScene={RouteMapper}
+      />
+    );
+  }
+}
 
 AppRegistry.registerComponent('ExploreProject', () => App);

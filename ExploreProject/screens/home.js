@@ -51,7 +51,7 @@ export default class Home extends Component {
     fontWeight: 'bold',
     textAlign: 'center',
   	fontSize:22,
-    marginBottom:20
+    marginBottom:10
   },
   button: {
   	height:60,
