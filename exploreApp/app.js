@@ -10,7 +10,28 @@ var users = require('./routes/users');
 var places = require('./routes/places');
 var sent = require('./routes/sent');
 
+
 var app = express();
+var db = require('./models/db');
+var User = require('./models/users');
+
+// var models = require('./models/models');
+
+// var db = require('./models/db');
+// var User = require('./models/users');
+//
+// var user1 = new User({firstName: "Louisa", lastName: "Spicer",
+// 													age: "23", city: "London"});
+//
+// //save model to MongoDB
+// user1.save(function (err) {
+//   if (err) {
+// 		return err;
+//   }
+//   else {
+//   	console.log("Post saved");
+//   }
+// });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
