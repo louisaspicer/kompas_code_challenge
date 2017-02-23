@@ -14,9 +14,15 @@ import PlaceData from './placesData';
 
 export default class Home extends Component {
 
-  _navigate() {
+  _navigateToUsers() {
   	this.props.navigator.push({
     	name: 'Users'
+    })
+  }
+
+  _navigateToPlaces() {
+  	this.props.navigator.push({
+    	name: 'Places'
     })
   }
 
@@ -24,9 +30,13 @@ export default class Home extends Component {
      return (
        <View style={ styles.container }>
        <Text style={ styles.heading }>EXPLORE</Text>
-      <TouchableHighlight style={ styles.button } onPress={ () => this._navigate() }>
+      <TouchableHighlight style={ styles.button } onPress={ () => this._navigateToUsers() }>
         <Text style={ styles.buttonText }>USERS</Text>
       </TouchableHighlight>
+      <Text>{"\n"}</Text>
+     <TouchableHighlight style={ styles.button } onPress={ () => this._navigateToPlaces() }>
+       <Text style={ styles.buttonText }>PLACES</Text>
+     </TouchableHighlight>
       </View>
    );
   }
