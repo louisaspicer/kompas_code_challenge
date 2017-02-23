@@ -1,0 +1,14 @@
+extends ../layout
+
+
+block content
+    h1.
+         #{title}
+    ul
+        each place, i in places
+            li
+                = place.name
+                = place.city
+                = place.address
+                = place.type
+                = place.rating

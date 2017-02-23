@@ -14,8 +14,10 @@ var sent = require('./routes/sent');
 var app = express();
 var db = require('./models/db');
 var User = require('./models/users');
+var Place = require('./models/places');
 
-// var models = require('./models/models');
+// var models = require('./models/userData');
+// var placeData = require('./models/placeData');
 
 // var db = require('./models/db');
 // var User = require('./models/users');

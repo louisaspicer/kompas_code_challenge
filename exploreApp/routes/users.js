@@ -20,17 +20,18 @@ router.route('/')
               if (err) {
                   return console.error(err);
               } else {
-                  res.format({
-                    html: function(){
-                        res.render('users/index', {
-                              title: 'All Users',
-                              "users" : users
-                          });
-                    },
-                    json: function(){
-                        res.json(infophotos);
-                    }
-                });
+                  res.json(users);
+                  // format({
+                  //   html: function(){
+                  //       res.render('users/index', {
+                  //             title: 'All Users',
+                  //             "users" : users
+                  //         });
+                  //   },
+                  //   json: function(){
+                  //       res.json(infophotos);
+                  //   }
+                // }
               }
         });
     })
