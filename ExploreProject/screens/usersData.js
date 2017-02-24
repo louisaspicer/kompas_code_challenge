@@ -27,7 +27,6 @@ export default class Users extends Component {
   componentDidMount() {
     axios.get(`http://localhost:3000/users`)
       .then(res => {
-        // console.log(res.data[0].firstName)
         const users = res.data
         this.setState({ users });
         console.log(this.state.users)
@@ -57,7 +56,7 @@ export default class Users extends Component {
   const styles = StyleSheet.create({
 
   container: {
-    paddingTop: 20,         // start below status bar
+    paddingTop: 20,
   },
 
   heading: {
@@ -90,7 +89,6 @@ export default class Users extends Component {
   },
 
   scrollContent: {
-    flexDirection: 'row',   // arrange posters in rows
-    flexWrap: 'wrap',       // allow multiple rows
-  }
+    flexDirection: 'row',
+    flexWrap: 'wrap',  
   });

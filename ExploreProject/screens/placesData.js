@@ -27,7 +27,6 @@ export default class Places extends Component {
   componentDidMount() {
     axios.get(`http://localhost:3000/places`)
       .then(res => {
-        // console.log(res.data[0].firstName)
         const places = res.data
         this.setState({ places });
         console.log(this.state.places)
@@ -59,7 +58,7 @@ export default class Places extends Component {
   const styles = StyleSheet.create({
 
   container: {
-    paddingTop: 20,         // start below status bar
+    paddingTop: 20,
   },
 
   heading: {
@@ -92,7 +91,7 @@ export default class Places extends Component {
   },
 
   scrollContent: {
-    flexDirection: 'row',   // arrange posters in rows
-    flexWrap: 'wrap',       // allow multiple rows
+    flexDirection: 'row',
+    flexWrap: 'wrap',
   }
   });

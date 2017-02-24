@@ -22,11 +22,8 @@ export default class App extends Component {
     return (
       <Navigator
         style={{ flex:1 }}
-        // Default to movies route
         initialRoute={{ name: 'Home' }}
-        // Use FloatFromBottom transition between screens
         configureScene={(route, routeStack) => Navigator.SceneConfigs.FloatFromBottom}
-        // Pass a route mapper functions
         renderScene={RouteMapper}
       />
     );
